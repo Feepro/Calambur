@@ -1,0 +1,12 @@
+package com.chopchop.calambur
+
+data class QuestionaryEntity(
+    val id: Long = counter++,
+    val name: String,
+    val city: String,
+    val url: String
+) {
+    companion object {
+        private var counter = 0L
+    }
+}
