@@ -3,6 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable-v24/like_green_24dp.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable-v24/like_white_120dp.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable-v24/skip_white_120dp.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable/bot_rouded_rec.xml" value="0.3828125" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable/circle_button.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable/middle_rouded_rec.xml" value="0.3828125" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable/online_circle_green.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/drawable/top_rouded_rec.xml" value="0.3828125" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/activity_current_dialog.xml" value="0.5" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/activity_dialogs.xml" value="0.33" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/activity_edit_profile.xml" value="0.32989690721649484" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/activity_main.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/fragment_profile.xml" value="0.41436138905238373" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/fragment_swipe.xml" value="0.33" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/item_dialog.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/item_swipe.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/message_item_my.xml" value="0.33" />
+        <entry key="..\:/Users/1/StudioProjects/Calambur/app/src/main/res/layout/random_dialog_item.xml" value="1.1" />
         <entry key="..\:/Users/Oao/AndroidStudioProjects/Calambur/app/src/main/res/drawable-v24/overlay_black.xml" value="0.3212962962962963" />
         <entry key="..\:/Users/Oao/AndroidStudioProjects/Calambur/app/src/main/res/drawable-v24/skip_red_24dp.xml" value="0.3212962962962963" />
         <entry key="..\:/Users/Oao/AndroidStudioProjects/Calambur/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.16666666666666666" />

@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EF9A9A"
+    android:background="@color/hlopok"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/frgFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="-22dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigationBar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:mbn_backgroundBottomColor="#4DB6AC"
-        app:mbn_circleColor="#FFA726"
+        app:mbn_backgroundBottomColor="@color/dinya"
+        app:mbn_circleColor="@color/tikva"
         app:mbn_countBackgroundColor="#FFF59D"
         app:mbn_defaultIconColor="#100E04"
         app:mbn_selectedIconColor="#000000"

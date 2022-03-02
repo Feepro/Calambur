@@ -1,4 +1,4 @@
-package com.chopchop.calambur
+package com.chopchop.calambur.swipe
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +8,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.chopchop.calambur.entity.ProfileEntity
+import com.chopchop.calambur.R
 
 class SwipeAdapter(
-    private var spots: List<QuestionaryEntity> = emptyList()
+    private var spots: List<ProfileEntity> = emptyList()
 ) : RecyclerView.Adapter<SwipeAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +25,7 @@ class SwipeAdapter(
         holder.name.text = "${spot.id}. ${spot.name}"
         holder.city.text = spot.city
         Glide.with(holder.image)
-            .load(spot.url)
+            .load(spot.avatarUrl)
             .into(holder.image)
         holder.itemView.setOnClickListener { v ->
             Toast.makeText(v.context, spot.name, Toast.LENGTH_SHORT).show()
@@ -34,11 +36,11 @@ class SwipeAdapter(
         return spots.size
     }
 
-    fun setSpots(spots: List<QuestionaryEntity>) {
+    fun setSpots(spots: List<ProfileEntity>) {
         this.spots = spots
     }
 
-    fun getSpots(): List<QuestionaryEntity> {
+    fun getSpots(): List<ProfileEntity> {
         return spots
     }
 

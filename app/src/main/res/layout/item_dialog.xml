@@ -9,32 +9,32 @@
         android:id="@+id/frameLayout"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FF0000"
-            android:elevation="0dp"
-            android:scaleType="centerCrop"
-            app:riv_corner_radius="25dp">
-
-        </com.makeramen.roundedimageview.RoundedImageView>
-
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/dialogOnlineIco"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_gravity="bottom|right"
             android:elevation="1dp"
             app:srcCompat="@drawable/online_circle_green" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/dialogAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="25dp">
+
+        </com.makeramen.roundedimageview.RoundedImageView>
     </FrameLayout>
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/dialogOpenBtn"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginEnd="16dp"
@@ -44,7 +44,7 @@
         app:srcCompat="@drawable/ic_baseline_message_24" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/dialogName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -55,13 +55,13 @@
         app:layout_constraintTop_toTopOf="@+id/frameLayout" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dialogLastMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Написанное супер подробное сообщение..."
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/dialogName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

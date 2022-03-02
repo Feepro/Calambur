@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "321866480207",
+    "firebase_url": "https://calambur-e81bb-default-rtdb.firebaseio.com",
+    "project_id": "calambur-e81bb",
+    "storage_bucket": "calambur-e81bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321866480207:android:b42b67cfdd481b5ef8883a",
+        "android_client_info": {
+          "package_name": "com.chopchop.calambur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321866480207-bhep6plrmgufpafehrchsidc1sqsa9in.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtuov-c-n3RYkEhYkCv6Aeu5sIv03Aph4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321866480207-bhep6plrmgufpafehrchsidc1sqsa9in.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SwipeFragment">
+    tools:context=".swipe.SwipeFragment">
 
     <com.yuyakaido.android.cardstackview.CardStackView
         android:id="@+id/card_stack_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp" />
-</FrameLayout>
+        android:paddingRight="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/swipeButtonPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/card_stack_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73">
+
+        <ImageButton
+            android:id="@+id/mailBtn"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/top_rouded_rec"
+            android:backgroundTint="#FFFFFF"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_mark_email_unread_24"
+            android:tint="@color/purple_200" />
+
+        <ImageButton
+            android:id="@+id/likeBtn"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/top_rouded_rec"
+            android:backgroundTint="#FFFFFF"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/like_green_24dp" />
+
+        <ImageButton
+            android:id="@+id/dislikeBtn"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bot_rouded_rec"
+            android:backgroundTint="#FFFFFF"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/skip_red_24dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/showSwipeBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_fast_forward_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

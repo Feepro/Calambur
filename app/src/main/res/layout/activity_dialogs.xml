@@ -3,29 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".dialogs.list.DialogFragment">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="Иванов Иванович"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -74,17 +66,24 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <LinearLayout
+        android:id="@+id/resContainer"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/randomDialogResView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/textView4"
@@ -96,9 +95,10 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/resContainer" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dialogResView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
