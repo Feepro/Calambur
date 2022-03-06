@@ -3,9 +3,9 @@ package com.chopchop.calambur
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class EditProfileActivity : AppCompatActivity() {
+class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_profile)
+        setContentView(R.layout.activity_start)
     }
 }

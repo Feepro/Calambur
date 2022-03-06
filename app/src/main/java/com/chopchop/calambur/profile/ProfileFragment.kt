@@ -1,4 +1,4 @@
-package com.chopchop.calambur
+package com.chopchop.calambur.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import com.chopchop.calambur.R
+import com.chopchop.calambur.profile.EditProfileActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,7 +35,7 @@ class ProfileFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_profile, container, false)
         val editProfileBtn = v.findViewById<ImageButton>(R.id.editBtn)
         editProfileBtn.setOnClickListener {
-            startActivity(Intent(v.context,EditProfileActivity::class.java))
+            startActivity(Intent(v.context, EditProfileActivity::class.java))
         }
         return v
     }

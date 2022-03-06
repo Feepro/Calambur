@@ -1,16 +1,14 @@
 package com.chopchop.calambur.entity
 
-data class ProfileEntity(
-    val id: Long = counter++,
-    val name: String,
-    val city: String,
-    val age:Int,
-    val avatarUrl: String,
-    val description:String,
-    val calambur:String,
 
-) {
-    companion object {
-        private var counter = 0L
-    }
-}
+data class ProfileEntity(
+    var id: String? = null,
+    var name: String? = null,
+    var city: String? = null,
+    var age:String? = null,
+    var avatarUrl: String? = null,
+    var description:String? = null,
+    var calambur:String? = null,
+    var sex:Boolean? = null,
+
+): java.io.Serializable

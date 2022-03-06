@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.chopchop.calambur.dialogs.list.DialogFragment
+import com.chopchop.calambur.profile.ProfileFragment
 import com.chopchop.calambur.swipe.SwipeFragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 
