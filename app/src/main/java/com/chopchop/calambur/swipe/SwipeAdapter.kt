@@ -1,5 +1,7 @@
 package com.chopchop.calambur.swipe
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chopchop.calambur.entity.ProfileEntity
 import com.chopchop.calambur.R
+import com.google.firebase.storage.FirebaseStorage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 
 class SwipeAdapter(
     private var spots: List<ProfileEntity> = emptyList()
@@ -22,11 +27,20 @@ class SwipeAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val spot = spots[position]
-        holder.name.text = "${spot.id}. ${spot.name}"
-        holder.city.text = spot.city
-        Glide.with(holder.image)
-            .load(spot.avatarUrl)
-            .into(holder.image)
+        val storage = FirebaseStorage.getInstance()
+        var storageRef = storage.reference
+        val pathReference = storage.getReferenceFromUrl(spot.avatarUrl!!)
+        holder.name.text = "${spot.name} ${spot.age}. ${spot.city}"
+        holder.city.text = spot.address_state
+        runBlocking(Dispatchers.IO){
+            pathReference.getBytes(9999999).addOnCompleteListener {
+                holder.image.setImageBitmap(BitmapFactory.decodeByteArray(it.result, 0, it.result!!.size))
+            }
+        }
+
+//        Glide.with(holder.image)
+//            .load(spot.avatarUrl)
+//            .into(holder.image)
         holder.itemView.setOnClickListener { v ->
             Toast.makeText(v.context, spot.name, Toast.LENGTH_SHORT).show()
         }

@@ -7,7 +7,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class MyProfile : MyProfileDAO {
+class MyProfileRequestFirebase : MyProfileDAO {
 
     override fun createProfile(profile: ProfileEntity) {
         val db = Firebase.firestore
@@ -19,7 +19,9 @@ class MyProfile : MyProfileDAO {
             "name" to profile.name,
             "avatarUrl" to profile.avatarUrl,
             "city" to profile.city,
-            "sex" to profile.sex
+            "sex" to profile.sex,
+            "address_name" to profile.address_name,
+            "address_state" to profile.address_state
         )
 
 // Add a new document with a generated ID

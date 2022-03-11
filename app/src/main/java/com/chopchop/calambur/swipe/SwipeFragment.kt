@@ -15,10 +15,24 @@ import com.chopchop.calambur.R
 import com.yuyakaido.android.cardstackview.*
 
 import android.animation.ValueAnimator
+import android.widget.Button
+import androidx.constraintlayout.widget.ConstraintLayout
 
 
 class SwipeFragment : Fragment(R.layout.fragment_swipe),CardStackListener {
-    private val adapter by lazy { SwipeAdapter(createQuestionaryEntity()) }
+    val testMyProfile = ProfileEntity(
+        id = "1",
+        name = "Yasaka Shrine",
+        city = "Kyoto",
+        age = "1",
+        avatarUrl = "https://source.unsplash.com/Xq1ntWruZQI/600x800",
+        description = "mmm nicae!",
+        calambur = "cal != cum",
+        sex = true,
+        address_name = "городской округ Батайск",
+        address_state = "Ростовская область"
+    )
+
     private val layoutManager by lazy {CardStackLayoutManager(this.context,this)}
 
     override fun onCreateView(
@@ -32,6 +46,7 @@ class SwipeFragment : Fragment(R.layout.fragment_swipe),CardStackListener {
         val mailBtn = v.findViewById<ImageButton>(R.id.mailBtn)
         val showSwipeBtn = v.findViewById<ImageView>(R.id.showSwipeBtn)
         val swipeButtonPanel = v.findViewById<LinearLayout>(R.id.swipeButtonPanel)
+        val startSwipe = v.findViewById<Button>(R.id.startSwipe)
         swipeButtonPanel.tag = 0
         layoutManager.setMaxDegree(-20.0f)
 
@@ -74,25 +89,119 @@ class SwipeFragment : Fragment(R.layout.fragment_swipe),CardStackListener {
                 animator.start()
         }
 
-
         cardStackView.layoutManager = layoutManager
-        cardStackView.adapter = adapter
+        val profiles = ProfileRequest().getProfilesForSwipe(
+            testMyProfile,
+            10,
+            false
+        )
 
+
+
+        startSwipe.setOnClickListener {
+            if (profiles != null) {
+                if(profiles.size != 0)
+                cardStackView.adapter = SwipeAdapter(profiles)
+                v.findViewById<ConstraintLayout>(R.id.swipePanel).visibility = View.VISIBLE
+                it.visibility = View.INVISIBLE
+            }
+
+        }
         return v
     }
 
     fun createQuestionaryEntity(): List<ProfileEntity> {
         val questionaryEntity = ArrayList<ProfileEntity>()
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm nicae!",age = "1",name = "Yasaka Shrine", city = "Kyoto", avatarUrl = "https://source.unsplash.com/Xq1ntWruZQI/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm nasdice!1",age = "12",name = "Fushimi Inari Shrine", city = "Kyoto", avatarUrl = "https://source.unsplash.com/NYyCqdBOKwc/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm nice!2",age = "13",name = "Bamboo Forest", city = "Kyoto", avatarUrl = "https://source.unsplash.com/buF62ewDLcQ/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm niasdce!3",age = "14",name = "Brooklyn Bridge", city = "New York", avatarUrl = "https://source.unsplash.com/THozNzxEP3g/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm nizxcce!4",age = "15",name = "Empire State Building", city = "New York", avatarUrl = "https://source.unsplash.com/USrZRcRS2Lw/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm nice!1",age = "16",name = "The statue of Liberty", city = "New York", avatarUrl = "https://source.unsplash.com/PeFk7fzxTdk/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm nice!",age = "17",name = "Louvre Museum", city = "Paris", avatarUrl = "https://source.unsplash.com/LrMWHKqilUw/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm niaasdacce!",age = "188",name = "Eiffel Tower", city = "Paris", avatarUrl = "https://source.unsplash.com/HN-5Z6AmxrM/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm niasdce!",age = "188",name = "Big Ben", city = "London", avatarUrl = "https://source.unsplash.com/CdVAUADdqEc/600x800",sex = true))
-        questionaryEntity.add(ProfileEntity(id = "1",calambur = "cal != cum",description = "mmm niasdce!",age = "175",name = "Great Wall of China", city = "China", avatarUrl = "https://source.unsplash.com/AWh9C-QjhE4/600x800",sex = true))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Fushimi Inari Shrine",
+            city = "Kyoto",
+            age = "12",
+            avatarUrl = "https://source.unsplash.com/NYyCqdBOKwc/600x800",
+            description = "mmm nasdice!1",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Bamboo Forest",
+            city = "Kyoto",
+            age = "13",
+            avatarUrl = "https://source.unsplash.com/buF62ewDLcQ/600x800",
+            description = "mmm nice!2",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Brooklyn Bridge",
+            city = "New York",
+            age = "14",
+            avatarUrl = "https://source.unsplash.com/THozNzxEP3g/600x800",
+            description = "mmm niasdce!3",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Empire State Building",
+            city = "New York",
+            age = "15",
+            avatarUrl = "https://source.unsplash.com/USrZRcRS2Lw/600x800",
+            description = "mmm nizxcce!4",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "The statue of Liberty",
+            city = "New York",
+            age = "16",
+            avatarUrl = "https://source.unsplash.com/PeFk7fzxTdk/600x800",
+            description = "mmm nice!1",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Louvre Museum",
+            city = "Paris",
+            age = "17",
+            avatarUrl = "https://source.unsplash.com/LrMWHKqilUw/600x800",
+            description = "mmm nice!",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Eiffel Tower",
+            city = "Paris",
+            age = "188",
+            avatarUrl = "https://source.unsplash.com/HN-5Z6AmxrM/600x800",
+            description = "mmm niaasdacce!",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Big Ben",
+            city = "London",
+            age = "188",
+            avatarUrl = "https://source.unsplash.com/CdVAUADdqEc/600x800",
+            description = "mmm niasdce!",
+            calambur = "cal != cum",
+            sex = true,
+        ))
+        questionaryEntity.add(ProfileEntity(
+            id = "1",
+            name = "Great Wall of China",
+            city = "China",
+            age = "175",
+            avatarUrl = "https://source.unsplash.com/AWh9C-QjhE4/600x800",
+            description = "mmm niasdce!",
+            calambur = "cal != cum",
+            sex = true,
+        ))
         return questionaryEntity
     }
 
