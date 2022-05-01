@@ -8,8 +8,10 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.chopchop.calambur.MainActivity
 import com.chopchop.calambur.R
 import com.chopchop.calambur.profile.EditProfileActivity
+import com.chopchop.calambur.registration.RegistrationCase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -42,6 +44,8 @@ class LoginActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         //Log.d(TAG, "signInWithEmail:success")
                         val user = auth.currentUser
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
                         //Log.d(TAG, "onCreate: "+user!!.uid)
                         //updateUI(user)
                     } else {
@@ -54,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
         findViewById<Button>(R.id.registerBtn).setOnClickListener {
-            startActivity(Intent(this,EditProfileActivity::class.java))
+            startActivity(Intent(this,RegistrationCase::class.java))
         }
     }
 }

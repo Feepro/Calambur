@@ -20,7 +20,9 @@ class ProfileRequest {
             .addOnSuccessListener { resultQuery ->
                 for (document in resultQuery) {
                     Log.d("123", "123 ${document.id} => ${document.data}")
-                    result.add(getProfileEntitiesFromSnapshot(document.data, document.id))
+                    val profile = getProfileEntitiesFromSnapshot(document.data, document.id)
+                    if(profile.sex !=myProfile.sex)
+                        result.add(profile)
                 }
             }
             .addOnFailureListener { exception ->
@@ -34,7 +36,9 @@ class ProfileRequest {
                 .addOnSuccessListener { resultQuery ->
                     for (document in resultQuery) {
                         Log.d("123", "123 ${document.id} => ${document.data}")
-                        result.add(getProfileEntitiesFromSnapshot(document.data,document.id))
+                        val profile = getProfileEntitiesFromSnapshot(document.data, document.id)
+                        if(profile.sex !=myProfile.sex)
+                            result.add(profile)
                     }
                 }
                 .addOnFailureListener { exception ->
@@ -43,7 +47,7 @@ class ProfileRequest {
         return result
     }
 
-    private fun getProfileEntitiesFromSnapshot(data: Map<String, Any>, id: String):ProfileEntity{
+    fun getProfileEntitiesFromSnapshot(data: Map<String, Any>, id: String):ProfileEntity{
         return ProfileEntity(
             id = id,
             name = data["name"] as String?,

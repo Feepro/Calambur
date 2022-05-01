@@ -6,11 +6,12 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.chopchop.calambur.dialogs.list.DialogFragment
+import com.chopchop.calambur.entity.ProfileEntity
 import com.chopchop.calambur.profile.ProfileFragment
 import com.chopchop.calambur.swipe.SwipeFragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-
-
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        val myProfile = Json.decodeFromString<ProfileEntity>(intent.getStringExtra("myProfile").toString())
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit {

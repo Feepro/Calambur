@@ -1,5 +1,6 @@
 package com.chopchop.calambur.profile
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
 import com.chopchop.calambur.entity.ProfileEntity
@@ -8,6 +9,23 @@ import com.google.firebase.ktx.Firebase
 
 
 class MyProfileRequestFirebase : MyProfileDAO {
+    override fun getMyProfile(uid: String,listener:ProfileRequest):ProfileEntity {
+        var result = ProfileEntity()
+        val db = Firebase.firestore
+        db.collection("profiles")
+            .document(uid)
+            .get()
+            .addOnSuccessListener { resultQuery ->
+                result = getProfileEntitiesFromSnapshot(resultQuery.data!!, uid)
+                listener.OnSuccess(result)
+            }
+            .addOnFailureListener {
+                listener.OnError(it)
+                Log.e(ContentValues.TAG, "Error getting documents.", it)
+            }
+        return result
+    }
+
 
     override fun createProfile(profile: ProfileEntity) {
         val db = Firebase.firestore
@@ -44,9 +62,29 @@ class MyProfileRequestFirebase : MyProfileDAO {
     override fun deleteProfile(profile: ProfileEntity) {
 
     }
+
+    fun getProfileEntitiesFromSnapshot(data: Map<String, Any>, id: String):ProfileEntity{
+        return ProfileEntity(
+            id = id,
+            name = data["name"] as String?,
+            city = data["city"] as String?,
+            age = data["age"] as String?,
+            avatarUrl = data["avatarUrl"] as String?,
+            description = data["description"] as String? ,
+            calambur = data["calambur"] as String?,
+            sex = data["sex"] as Boolean?,
+            address_name = data["address_name"] as String? ,
+            address_state = data["address_state"] as String?,
+        )
+    }
 }
 interface MyProfileDAO{
+    fun getMyProfile(uid:String,listener:ProfileRequest):ProfileEntity
     fun createProfile(profile:ProfileEntity)
     fun updateProfile(updatedProfile: ProfileEntity)
     fun deleteProfile(profile: ProfileEntity)
+}
+interface ProfileRequest{
+    fun OnSuccess(result: ProfileEntity)
+    fun OnError(e:Exception)
 }

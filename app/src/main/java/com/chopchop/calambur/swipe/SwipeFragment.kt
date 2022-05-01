@@ -7,16 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
 import com.chopchop.calambur.entity.ProfileEntity
 import com.chopchop.calambur.R
 import com.yuyakaido.android.cardstackview.*
 
 import android.animation.ValueAnimator
-import android.widget.Button
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.chopchop.calambur.profile.MyProfileRequestFirebase
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.serialization.json.Json
 
 
 class SwipeFragment : Fragment(R.layout.fragment_swipe),CardStackListener {
@@ -49,6 +50,7 @@ class SwipeFragment : Fragment(R.layout.fragment_swipe),CardStackListener {
         val startSwipe = v.findViewById<Button>(R.id.startSwipe)
         swipeButtonPanel.tag = 0
         layoutManager.setMaxDegree(-20.0f)
+
 
         likeBtn.setOnClickListener{
             val setting = SwipeAnimationSetting.Builder()
@@ -92,7 +94,7 @@ class SwipeFragment : Fragment(R.layout.fragment_swipe),CardStackListener {
         cardStackView.layoutManager = layoutManager
         val profiles = ProfileRequest().getProfilesForSwipe(
             testMyProfile,
-            10,
+            100,
             false
         )
 
@@ -100,10 +102,15 @@ class SwipeFragment : Fragment(R.layout.fragment_swipe),CardStackListener {
 
         startSwipe.setOnClickListener {
             if (profiles != null) {
-                if(profiles.size != 0)
-                cardStackView.adapter = SwipeAdapter(profiles)
-                v.findViewById<ConstraintLayout>(R.id.swipePanel).visibility = View.VISIBLE
-                it.visibility = View.INVISIBLE
+                if(profiles.size != 0){
+                    cardStackView.adapter = SwipeAdapter(profiles)
+                    v.findViewById<ConstraintLayout>(R.id.swipePanel).visibility = View.VISIBLE
+                    it.visibility = View.INVISIBLE
+                }else{
+                    Toast.makeText(context,"Нету анкет больше :с",Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(context,"Мы ещё не подгрузили странички :c подождите",Toast.LENGTH_SHORT).show()
             }
 
         }

@@ -35,7 +35,16 @@ class RegistrationCase : AppCompatActivity() {
         setContentView(R.layout.fragment_reg_stage)
 
         stage = findViewById<LinearLayout>(R.id.stage1)
-
+        findViewById<FloatingActionButton>(R.id.selectAvatar).setOnClickListener {
+            imageLoaded=false
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(
+                Intent.createChooser(intent, "Select Picture"),
+                1
+            )
+        }
         findViewById<TextView>(R.id.next_stage_reg).setOnClickListener {
 
 
@@ -151,16 +160,7 @@ class RegistrationCase : AppCompatActivity() {
                                 stageCompleted = true
                                 stage.visibility = View.INVISIBLE
                                 stage = findViewById(R.id.stage6)
-                                findViewById<FloatingActionButton>(R.id.selectAvatar).setOnClickListener {
-                                    imageLoaded=false
-                                    val intent = Intent()
-                                    intent.type = "image/*"
-                                    intent.action = Intent.ACTION_GET_CONTENT
-                                    startActivityForResult(
-                                        Intent.createChooser(intent, "Select Picture"),
-                                        1
-                                    )
-                                }
+
                                 slideNewStage()
                                 stageCompleted = false
                             } else {

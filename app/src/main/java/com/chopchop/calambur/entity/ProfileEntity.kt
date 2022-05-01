@@ -1,6 +1,7 @@
 package com.chopchop.calambur.entity
-
-
+import androidx.annotation.Keep
+import kotlinx.serialization.Serializable
+@Serializable
 data class ProfileEntity(
     var id: String? = null,
     var name: String? = null,
